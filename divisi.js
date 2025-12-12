@@ -42,10 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const pegawaiBaru = { nama, tgl, alamat, jabatan };
 
-      let data = JSON.parse(localStorage.getItem("pegawai")) || [];
+      let data = JSON.parse(localStorage.getItem("dataPegawai")) || [];
       data.push(pegawaiBaru);
 
-      localStorage.setItem("pegawai", JSON.stringify(data));
+      localStorage.setItem("dataPegawai", JSON.stringify(data));
 
       alert("Data berhasil disimpan!");
       window.location.href = "tabeldatapegawai.html";

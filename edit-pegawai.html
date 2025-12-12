@@ -108,6 +108,7 @@
       // Ambil ID dari URL (contoh: edit-pegawai.html?id=3)
       const urlParams = new URLSearchParams(window.location.search);
       const editId = urlParams.get("id");
+      alert(editId);
 
       // Jika ID valid → isi form dengan data lama
       if (editId !== null && dataPegawai[editId]) {
@@ -131,7 +132,7 @@
           const jabatan = document.getElementById("jabatan").value;
 
           const dataBaru = { nama, tgl, alamat, jabatan };
-
+          console.log(dataBaru);
           // Simpan perubahan
           dataPegawai[editId] = dataBaru;
 
