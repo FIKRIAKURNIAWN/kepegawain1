@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Kehadiran</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        background: #f4f4f4;
+      }
+
+      .sidebar {
+        width: 220px;
+        height: 100vh;
+        background: #007bff;
+        color: white;
+        padding-top: 30px;
+        position: fixed;
+      }
+
+      .sidebar h2 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .sidebar a {
+        display: block;
+        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+      }
+
+      .sidebar a:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .content {
+        margin-left: 220px;
+        padding: 20px;
+        width: 100%;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background: #007bff;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background: #f2f2f2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <h2>SI Pegawai</h2>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="tabeldatapegawai.html">Data Pegawai</a>
+      <a href="tambah-pegawai.html">Tambah Pegawai</a>
+      <a href="laporan-kehadiran.html">Laporan Kehadiran</a>
+      <a href="gate.html">Logout</a>
+      <a href="profil-pegawai.html">Profil Pegawai</a>
+    </div>
+
+    <div class="content">
+      <h1>Laporan Kehadiran Pegawai</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nama Pegawai</th>
+            <th>Tanggal</th>
+            <th>Status</th>
+            <th>Jam Masuk</th>
+            <th>Jam Pulang</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Budi Santoso</td>
+            <td>01 Jan 2025</td>
+            <td>Hadir</td>
+            <td>08.00</td>
+            <td>17.00</td>
+          </tr>
+
+          <tr>
+            <td>Siti Aminah</td>
+            <td>01 Jan 2025</td>
+            <td>Hadir</td>
+            <td>08.05</td>
+            <td>17.00</td>
+          </tr>
+
+          <tr>
+            <td>Joko Susilo</td>
+            <td>01 Jan 2025</td>
+            <td>Izin</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr>
+            <td>Dewi Lestari</td>
+            <td>01 Jan 2025</td>
+            <td>Hadir</td>
+            <td>08.15</td>
+            <td>17.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

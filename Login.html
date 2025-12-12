@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistem Informasi Kepegawaian</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url(blue.jpg);
+        background-size: cover;
+        color: white;
+        font-family: "Funnel Sans", sans-serif;
+      }
+
+      h1 {
+        font-weight: 800;
+        font-size: 30pt;
+      }
+
+      .box {
+        background: white;
+        color: #333;
+        padding: 18px;
+        width: 350px;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+      .name,
+      .password {
+        padding: 12px;
+        width: 18rem;
+        margin: 10px;
+        border-radius: 20px;
+        border: solid rgb(90, 90, 90) 1px;
+      }
+
+      .container-checkbox {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12pt;
+      }
+
+      .forgot {
+        transform: translateX(-20px) translateY(10px);
+      }
+
+      .forgot:visited {
+        color: black;
+      }
+
+      .checkbox {
+        display: flex;
+        width: 8rem;
+        margin-left: 20px;
+        margin-top: 10px;
+      }
+
+      .btn,
+      .btn1 {
+        padding: 12px 20px;
+        border-radius: 20px;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bold;
+        margin: 5px;
+      }
+
+      .btn {
+        background: #007bff;
+        color: white;
+        width: 75px;
+      }
+
+      .btn1 {
+        background: red;
+        color: white;
+        width: 75px;
+      }
+
+      .btn:hover {
+        background: #004a99;
+      }
+
+      .btn1:hover {
+        background: #6b0000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <h1>Login</h1>
+
+      <form action="">
+        <input
+          type="text"
+          class="name"
+          id="username"
+          placeholder="Username"
+          required
+        />
+
+        <input
+          type="password"
+          class="password"
+          id="password"
+          placeholder="Password"
+          required
+        />
+
+        <div class="container-checkbox">
+          <div class="checkbox">
+            <input type="checkbox" id="ingatkan" />&nbsp;Ingatkan saya!
+          </div>
+
+          <a
+            href="forgot-password.html"
+            class="forgot"
+            style="text-decoration: none"
+            >Forgot Password?</a
+          >
+        </div>
+
+        <br />
+        <a href="dashboard.html" class="btn" id="login">Login</a>
+        <a href="gate.html" class="btn1">Kembali</a>
+        <p class="register-text">
+          Belum mempunyai akun? <a href="register.html">Register</a>
+        </p>
+      </form>
+      <script>
+        document
+          .getElementById("login")
+          .addEventListener("click", function (event) {
+            event.preventDefault();
+
+            let inputUser = document.getElementById("username").value;
+            let inputPass = document.getElementById("password").value;
+
+            let savedUser = localStorage.getItem("username");
+            let savedPass = localStorage.getItem("password");
+
+            if (inputUser === savedUser && inputPass === savedPass) {
+              alert("Login berhasil!");
+              window.location.href = "dashboard.html";
+            } else {
+              alert("Login gagal! Username atau password salah.");
+            }
+          });
+      </script>
+    </div>
+  </body>
+</html>

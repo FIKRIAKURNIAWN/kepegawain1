@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Pegawai</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial;
+        display: flex;
+        background: #f4f4f4;
+      }
+      .sidebar {
+        width: 220px;
+        height: 100vh;
+        background: #007bff;
+        color: white;
+        padding-top: 30px;
+        position: fixed;
+      }
+      .sidebar a {
+        display: block;
+        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+      }
+      .sidebar a:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .content {
+        margin-left: 220px;
+        padding: 20px;
+        width: 100%;
+      }
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+      .btn {
+        margin-top: 20px;
+        background: #007bff;
+        color: white;
+        padding: 12px;
+        border-radius: 6px;
+        border: none;
+        width: 100%;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <h2>SI Pegawai</h2>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="tabeldatapegawai.html">Data Pegawai</a>
+      <a href="tambah-pegawai.html">Tambah Pegawai</a>
+      <a href="laporan-kehadiran.html">Laporan Kehadiran</a>
+      <a href="gate.html">Logout</a>
+      <a href="profil-pegawai.html">Profil Pegawai</a>
+    </div>
+
+    <div class="content">
+      <h1>Edit Pegawai</h1>
+
+      <form id="formEdit">
+        <label>Nama Lengkap</label>
+        <input type="text" id="nama" />
+
+        <label>Tanggal Lahir</label>
+        <input type="date" id="tgl" />
+
+        <label>Alamat</label>
+        <input type="text" id="alamat" />
+
+        <label>Jabatan</label>
+        <select id="jabatan">
+          <option>Manager IT</option>
+          <option>Supervisor</option>
+          <option>Staff</option>
+          <option>Admin</option>
+        </select>
+
+        <button class="btn">Simpan Perubahan</button>
+      </form>
+    </div>
+
+    <script>
+      // Ambil data pegawai dari localStorage
+      let dataPegawai = JSON.parse(localStorage.getItem("dataPegawai")) || [];
+
+      // Ambil ID dari URL (contoh: edit-pegawai.html?id=3)
+      const urlParams = new URLSearchParams(window.location.search);
+      const editId = urlParams.get("id");
+
+      // Jika ID valid → isi form dengan data lama
+      if (editId !== null && dataPegawai[editId]) {
+        const p = dataPegawai[editId];
+
+        document.getElementById("nama").value = p.nama;
+        document.getElementById("tgl").value = p.tgl;
+        document.getElementById("alamat").value = p.alamat;
+        document.getElementById("jabatan").value = p.jabatan;
+      }
+
+      // Jika tombol simpan diklik
+      document
+        .getElementById("formEdit")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const nama = document.getElementById("nama").value;
+          const tgl = document.getElementById("tgl").value;
+          const alamat = document.getElementById("alamat").value;
+          const jabatan = document.getElementById("jabatan").value;
+
+          const dataBaru = { nama, tgl, alamat, jabatan };
+
+          // Simpan perubahan
+          dataPegawai[editId] = dataBaru;
+
+          // Update ke localStorage
+          localStorage.setItem("dataPegawai", JSON.stringify(dataPegawai));
+
+          alert("Perubahan berhasil disimpan!");
+          window.location.href = "tabeldatapegawai.html";
+        });
+    </script>
+  </body>
+</html>
